@@ -1,0 +1,35 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ZethPhoenix Visualization Event",
+  "type": "object",
+  "required": ["event", "timestamp", "project_id"],
+  "properties": {
+    "event": {
+      "enum": [
+        "session_start", "division_activated", "agent_spawned",
+        "agent_state_change", "artifact_produced", "handoff",
+        "cross_division_request", "fallback_triggered", "project_completed"
+      ]
+    },
+    "timestamp": {"type": "string", "format": "date-time"},
+    "project_id": {"type": "string", "pattern": "^ZPRJ-\\d{8}-\\d{3}$"},
+    "agent": {
+      "type": "object",
+      "properties": {
+        "id": {"type": "string"},
+        "role": {"type": "string"},
+        "division": {"type": "string"},
+        "avatar": {"type": "string", "description": "Lottie JSON filename"}
+      }
+    },
+    "state": {
+      "enum": ["idle", "thinking", "working", "talking",
+              "reviewing", "done", "blocked", "fallback_rebirth"]
+    },
+    "activity": {"type": "string"},
+    "progress": {"type": "number", "minimum": 0, "maximum": 1},
+    "current_artifact": {"type": "string"},
+    "talking_to": {"type": ["string", "null"]},
+    "mood": {"enum": ["focused", "happy", "stressed", "celebrating", "phoenix"]}
+  }
+}

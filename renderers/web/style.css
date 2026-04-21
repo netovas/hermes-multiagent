@@ -1,0 +1,22 @@
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, sans-serif; }
+body { background: linear-gradient(135deg, #1a1a2e, #16213e); color: #eee; min-height: 100vh; display: grid; grid-template-rows: auto 1fr; grid-template-columns: 1fr 320px; grid-template-areas: "header header" "main aside"; }
+header { grid-area: header; padding: 16px 24px; background: rgba(0,0,0,0.4); display: flex; gap: 24px; align-items: center; border-bottom: 2px solid #ff6b35; }
+header h1 { font-size: 1.3rem; }
+#connection-status { margin-left: auto; }
+#office-floor { grid-area: main; padding: 24px; display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 16px; align-content: start; }
+.agent-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 16px; text-align: center; transition: all 0.3s; }
+.agent-card.working { border-color: #ffd23f; box-shadow: 0 0 20px rgba(255,210,63,0.4); animation: pulse 1.5s infinite; }
+.agent-card.done { border-color: #06d6a0; }
+.agent-card.blocked { border-color: #ef476f; }
+.agent-card .lottie-anim { width: 120px; height: 120px; margin: 0 auto; }
+.agent-card .role { font-weight: bold; margin-top: 8px; }
+.agent-card .activity { font-size: 0.85rem; opacity: 0.8; margin-top: 4px; min-height: 30px; }
+.progress-bar { height: 6px; background: rgba(255,255,255,0.1); border-radius: 3px; margin-top: 8px; overflow: hidden; }
+.progress-bar .fill { height: 100%; background: linear-gradient(90deg, #ff6b35, #ffd23f); transition: width 0.4s; }
+@keyframes pulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.03); } }
+#event-log { grid-area: aside; background: rgba(0,0,0,0.3); padding: 16px; overflow-y: auto; max-height: calc(100vh - 80px); }
+#log-list { list-style: none; font-size: 0.8rem; }
+#log-list li { padding: 6px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+#phoenix-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.85); display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 999; }
+#phoenix-overlay.hidden { display: none; }
+#phoenix-anim { width: 300px; height: 300px; }

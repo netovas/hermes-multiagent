@@ -1,0 +1,17 @@
+{
+  "event": "agent_state_change",
+  "timestamp": "2026-04-21T10:23:45Z",
+  "project_id": "ZPRJ-20260421-001",
+  "agent": {
+    "id": "ZP-PO-001",
+    "role": "Product Owner",
+    "avatar": "po_character.json",
+    "division": "SoftwareDev"
+  },
+  "state": "working",
+  "activity": "Writing user stories for login feature",
+  "progress": 0.6,
+  "current_artifact": "docs/UserStories.md",
+  "talking_to": null,
+  "mood": "focused"
+}
